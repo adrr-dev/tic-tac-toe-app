@@ -1,0 +1,107 @@
+/* 1. Layout Foundation */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7f6;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+#ui {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2. Winner Message (The "Pop") */
+#winner {
+  height: 4rem;
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  /* Gradient text looks cleaner with specific colors */
+  background: linear-gradient(to right, #2a9d8f, #e76f51);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideDown 0.4s ease-out;
+}
+
+/* 3. The Board */
+#board {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+[id^="row-"] {
+  display: flex;
+  gap: 10px;
+}
+
+button[name="cell"] {
+  width: 85px;
+  height: 85px;
+  font-size: 2.5rem;
+  border: none;
+  border-radius: 12px;
+  background: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button[name="cell"]:hover {
+  background: #e5e5e5;
+  transform: translateY(-2px);
+}
+
+button[name="cell"]:active {
+  transform: translateY(0);
+}
+
+/* 4. Score & Info Section */
+#info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+#victor-x, #victor-o {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+#victor-x { color: #2a9d8f; }
+#victor-o { color: #e76f51; }
+
+/* 5. Restart Button */
+#restart button {
+  padding: 12px 24px;
+  background: #2b2d42;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#restart button:hover {
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

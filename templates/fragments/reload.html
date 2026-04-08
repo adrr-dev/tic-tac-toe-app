@@ -1,0 +1,35 @@
+<div id="game">
+  <div id="winner">
+    <span>{{.Winner}}</span>
+  </div>
+  <form hx-post="/cell" hx-target="#ui">
+    <div id="board">
+      <div id="row-1">
+        <button type="submit" value="0"  name="cell">{{ index .Board 0 }}</button>
+        <button type="submit" value="1"  name="cell">{{ index .Board 1 }}</button>
+        <button type="submit" value="2"  name="cell">{{ index .Board 2 }}</button>
+      </div>
+      <div id="row-2">
+        <button type="submit" value="3"  name="cell">{{ index .Board 3 }}</button>
+        <button type="submit" value="4"  name="cell">{{ index .Board 4 }}</button>
+        <button type="submit" value="5"  name="cell">{{ index .Board 5 }}</button>
+      </div>
+      <div id="row-3">
+        <button type="submit" value="6"  name="cell">{{ index .Board 6 }}</button>
+        <button type="submit" value="7"  name="cell">{{ index .Board 7 }}</button>
+        <button type="submit" value="8"  name="cell">{{ index .Board 8 }}</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="info">
+  <div id="victor-x">
+    <span>X wins: {{.XWin}}</span>
+  </div>
+  <div id="restart">
+    <button hx-post="/restart" hx-target="#ui">Restart</button>
+  </div>
+  <div id="victor-o">
+    <span>O wins: {{.OWin}}</span>
+  </div>
+</div>
